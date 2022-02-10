@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.btn {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  border-radius: 5px;
+  background: #142683;
+  cursor: pointer;
+}
+
+.navbar {
+  background-color: #fff;
+  top: 0;
+  width: 100%;
+  border-bottom: 1px solid #ebf0f5;
+  padding: 12px 40px;
+}
+
+.navbar__container {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.loginPage {
+  display: flex;
+  min-height: 92vh;
+}
+
+.loginPage__left {
+  font-family: DM Sans;
+  font-weight: normal;
+  background-color: rgba(247, 248, 250, 0.5);
+  flex: 0.5;
+}
+
+.loginPage__right {
+  flex: 0.5;
+  font-family: DM Sans;
+}
+
+.loginPage__left__heading-box {
+  width: 60%;
+  margin: 120px auto;
+}
+
+.loginPage__left__heading-box {
+  width: 60%;
+  margin: 120px auto;
+}
+
+.loginPage__left__image-box {
+  width: 60%;
+  margin: 120px auto;
+}
+
+.loginPage__heading_1 {
+  display: block;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 62px;
+  letter-spacing: -0.02em;
+  color: #1e272e;
+}
+
+.loginPage__heading_2 {
+  display: block;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 62px;
+  letter-spacing: -0.02em;
+  color: #1e272e;
+  margin-bottom: 28px;
+}
+
+.loginPage__sub_1 {
+  display: block;
+  color: #566474;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 160%;
+  letter-spacing: -0.02em;
+}
+
+.loginPage__sub_2 {
+  display: block;
+  color: #566474;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 44.8px;
+}
+
+/* .loginPage__left__container {
+} */
+
+.loginPage__right__login-box {
+  border: 1px solid #dfe0e0;
+  border-radius: 10px;
+  width: 60%;
+  padding: 48px 16px;
+  margin: 300px auto;
+}
+
+.loginPage__right__login-title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: -0.02em;
+  color: #000000;
+  margin-bottom: 16px;
+}
+
+.loginPage__right__form {
+  width: 100%;
+}
+
+.loginPage__right__form-control {
+  width: 100%;
+  margin: 32px 0px;
+}
+
+.loginPage__right__input {
+  width: 100%;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+  color: #9eaab7;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 0px;
+  padding: 8px;
+}
+
+.btn-submit {
+  background: #142683;
+  width: 100%;
+  color: #ffffff;
+  padding: 3px 8px;
+}
