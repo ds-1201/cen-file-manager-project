@@ -1,0 +1,72 @@
+@import "styles/variables";
+
+.loginPage {
+  display: flex;
+  min-height: 92vh;
+}
+
+.loginPage__left {
+  font-family: $primary-font;
+  font-weight: normal;
+  background-color: $bg-gray;
+  flex: 0.5;
+}
+
+.loginPage__right {
+  flex: 0.5;
+  font-family: $primary-font;
+}
+
+.loginPage__left__heading-box {
+  width: 60%;
+  margin: 120px auto;
+}
+
+.loginPage__left__heading-box {
+  width: 60%;
+  margin: 120px auto;
+}
+
+.loginPage__left__image-box {
+  width: 60%;
+  margin: 120px auto;
+}
+
+.loginPage__heading_1 {
+  display: block;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 62px;
+  letter-spacing: -0.02em;
+  color: $text-black;
+}
+
+.loginPage__heading_2 {
+  display: block;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 62px;
+  letter-spacing: -0.02em;
+  color: $text-black;
+  margin-bottom: 28px;
+}
+
+.loginPage__sub_1 {
+  display: block;
+  color: $text-gray;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 160%;
+  letter-spacing: -0.02em;
+}
+
+.loginPage__sub_2 {
+  display: block;
+  color: $text-gray;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 44.8px;
+}
+

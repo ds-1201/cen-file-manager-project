@@ -1,0 +1,60 @@
+@import "styles/variables";
+
+.registerPage____form-box {
+  border: 1px solid $margin-gray;
+  border-radius: 10px;
+  width: 60%;
+  padding: 48px 16px;
+  margin: 300px auto;
+}
+
+.registerPage____form-title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: -0.02em;
+  color: $text-black;
+  margin-bottom: 16px;
+}
+
+.registerPage____form {
+  width: 100%;
+}
+
+.registerPage____form-control {
+  width: 100%;
+  margin: 32px 0px;
+}
+
+.registerPage____input {
+  width: 100%;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+  color: #9eaab7;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 0px;
+  padding: 8px;
+}
+
+.btn {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-submit {
+  background: $bg-blue;
+  width: 100%;
+  padding: 3px 8px;
+}
