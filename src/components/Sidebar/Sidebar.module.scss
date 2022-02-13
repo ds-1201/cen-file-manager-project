@@ -1,0 +1,70 @@
+@import "styles/variables";
+
+.sidebar {
+  background-color: $bg-gray;
+  flex: 0.2;
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar__logo-box {
+  margin-bottom: 2.5rem;
+  & > img {
+    width: 160px;
+  }
+}
+
+.sidebar__list-box {
+  flex: 0.9;
+  background-color: $bg-modal;
+}
+
+.sidebar__button-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  text-transform: capitalize;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.9rem;
+  letter-spacing: -0.02em;
+}
+
+.btn-outlined {
+  background-color: $bg-transparent;
+  color: $text-blue;
+  border-color: $margin-blue;
+}
+
+.btn-outlined:active {
+  border-color: $margin-blue;
+  outline: none;
+}
+
+.btn-contained {
+  background-color: $text-blue;
+  color: $text-white;
+  border-color: $margin-blue;
+}
+
+.btn-contained:active {
+  border-color: $margin-blue;
+  outline: none;
+}
+
+.btn-lock {
+  width: 100%;
+}

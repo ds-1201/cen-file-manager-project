@@ -1,1 +1,7 @@
 @import "styles/variables";
+
+.dashboard-main {
+  flex: 0.8;
+  min-height: 100vh;
+  padding: 2rem;
+}

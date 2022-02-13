@@ -1,0 +1,76 @@
+@import "styles/variables";
+
+.navbar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 3px solid $margin-gray;
+  padding-bottom: 2rem;
+}
+
+.navbar__top {
+  text-transform: capitalize;
+}
+
+.navbar__top__container {
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar__button-section {
+  flex: 0.4;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  & button {
+    margin: 0 1rem;
+  }
+}
+
+.btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 8px;
+  text-transform: capitalize;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+}
+
+.btn-outlined {
+  background-color: $bg-transparent;
+  color: $text-blue;
+  border-color: $margin-blue;
+}
+
+.btn-outlined:active {
+  border-color: $margin-blue;
+  outline: none;
+}
+
+.btn-outlined-2 {
+  background-color: $bg-transparent;
+  color: $text-black;
+  border-color: $margin-gray;
+}
+
+.btn-outlined-2:active {
+  border-color: $margin-gray;
+  outline: none;
+}
+
+.navbar__breadCrumb {
+  margin-top: 2.5rem;
+  text-transform: capitalize;
+  width: 100%;
+  & h3 {
+    font-weight: normal;
+  }
+  & span {
+    font-weight: bold;
+  }
+}

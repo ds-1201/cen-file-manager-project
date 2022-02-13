@@ -1,14 +1,14 @@
-import HomePage from "pages/HomePage/HomePage";
-// import Modal from "components/Modal/Modal";
+// import HomePage from "pages/HomePage/HomePage";
+
+import MainPage from "pages/MainPage/MainPage";
 import React from "react";
 import "styles/main.scss";
 
 function App() {
   return (
-    <div className="App">
-      <HomePage />
-      {/* <Modal /> */}
-    </div>
+    <>
+      <MainPage />
+    </>
   );
 }
 

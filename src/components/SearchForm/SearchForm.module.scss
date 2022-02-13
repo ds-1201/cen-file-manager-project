@@ -1,0 +1,30 @@
+@import "styles/variables";
+
+.search-box {
+  flex: 0.6;
+  & form {
+    border: 2px solid $margin-gray;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+  }
+  & button {
+    display: none;
+  }
+
+  & img {
+    width: 1rem;
+    border: none;
+    margin: 0.5rem 0;
+  }
+  & input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: $text-gray;
+    border: none;
+  }
+  & input:focus {
+    outline: none;
+  }
+}
