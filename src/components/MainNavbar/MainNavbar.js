@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./MainNavbar.module.scss";
 import Search from "./../SearchForm/SearchForm";
-import light_icon from "./../../assets/sun_logo.png";
-import plus_icon from "./../../assets/plus_icon.png";
-import cog_icon from "./../../assets/cog_logo.png";
+import SunLogo from "./../../assets/SunLogo";
+import PlusIcon from "./../../assets/PlusIcon";
+import CogIcon from "./../../assets/CogIcon";
 
 const MainNavbar = () => {
   return (
@@ -13,20 +13,14 @@ const MainNavbar = () => {
           <Search />
           <div className={styles["navbar__button-section"]}>
             <button className={`${styles["btn"]} ${styles["btn-outlined"]}`}>
-              <i style={{ margin: "0 5px" }}>
-                <img src={light_icon} alt="" width="90%" />{" "}
-              </i>
+              <SunLogo />
               Light Mode
             </button>
             <button className={`${styles["btn"]} ${styles["btn-outlined-2"]}`}>
-              <i>
-                <img src={plus_icon} alt="" width="90%" />{" "}
-              </i>
+              <PlusIcon />
             </button>
             <button className={`${styles["btn"]} ${styles["btn-outlined-2"]}`}>
-              <i>
-                <img src={cog_icon} alt="" width="90%" />{" "}
-              </i>
+              <CogIcon />
             </button>
           </div>
         </div>

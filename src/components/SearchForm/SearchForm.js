@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./SearchForm.module.scss";
-import Search_logo from "./../../assets/search_logo.png";
+import SearchIcon from "./../../assets/SearchIcon";
 
 const SearchForm = () => {
   const handleSearch = (e) => {
@@ -10,9 +10,7 @@ const SearchForm = () => {
   return (
     <div className={styles["search-box"]}>
       <form onSubmit={handleSearch}>
-        <i>
-          <img src={Search_logo} alt="Search-logo" />
-        </i>
+        <SearchIcon />
         <input type="text" placeholder="Search for files and folders." />
         <button></button>
       </form>

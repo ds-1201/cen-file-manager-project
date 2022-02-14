@@ -25,6 +25,9 @@
   & button {
     margin: 0 1rem;
   }
+  & svg {
+    margin-right: 0.5rem;
+  }
 }
 
 .btn {
@@ -32,35 +35,43 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 5px 8px;
+  padding: 8px;
   text-transform: capitalize;
   cursor: pointer;
   font-style: normal;
   font-weight: bold;
-  font-size: 0.95rem;
+  font-size: 1rem;
   letter-spacing: -0.01em;
 }
 
 .btn-outlined {
-  background-color: $bg-transparent;
+  border: 2px solid $text-blue;
+  background-color: inherit;
   color: $text-blue;
-  border-color: $margin-blue;
 }
 
-.btn-outlined:active {
-  border-color: $margin-blue;
+.btn-outlined:hover {
+  background-color: $bg-blue;
+  color: $text-white;
   outline: none;
+  & path {
+    stroke: $text-white;
+  }
 }
 
 .btn-outlined-2 {
-  background-color: $bg-transparent;
+  border: 2px solid $text-black;
+  background-color: inherit;
   color: $text-black;
-  border-color: $margin-gray;
 }
 
-.btn-outlined-2:active {
-  border-color: $margin-gray;
+.btn-outlined-2:hover {
+  background-color: $bg-black;
+  color: $text-white;
   outline: none;
+  & path {
+    stroke: $text-white;
+  }
 }
 
 .navbar__breadCrumb {

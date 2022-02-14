@@ -2,13 +2,49 @@
 
 .sidebar {
   background-color: $bg-gray;
-  flex: 0.2;
+  flex: 0.25;
   width: 100%;
   min-height: 100vh;
-  padding: 2rem 3rem;
+}
+
+.sidebar__outer-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.sidebar__scroller {
+  width: 1rem;
+  cursor: col-resize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & div:first-of-type {
+    height: 40px;
+    width: 2px;
+    background-color: $bg-modal;
+    margin-right: 2px;
+  }
+  & div:last-of-type {
+    height: 30px;
+    width: 2px;
+    background-color: $bg-modal;
+  }
+}
+
+.sidebar__inner-container {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  & svg {
+    margin-right: 0.5rem;
+  }
+  & i {
+    margin-right: 0.5rem;
+  }
 }
 
 .sidebar__logo-box {
@@ -29,29 +65,39 @@
   justify-content: space-between;
 }
 
+.sidebar__lock-box {
+  & .btn {
+    width: 100%;
+  }
+}
+
 .btn {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 8px;
-  text-transform: capitalize;
   cursor: pointer;
+  text-transform: capitalize;
   font-style: normal;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 1rem;
   letter-spacing: -0.02em;
 }
 
 .btn-outlined {
-  background-color: $bg-transparent;
+  border: 2px solid $text-blue;
+  background-color: inherit;
   color: $text-blue;
-  border-color: $margin-blue;
 }
 
-.btn-outlined:active {
-  border-color: $margin-blue;
+.btn-outlined:hover {
+  background-color: $bg-blue;
+  color: $text-white;
   outline: none;
+  & path {
+    stroke: $text-white;
+  }
 }
 
 .btn-contained {
@@ -63,8 +109,4 @@
 .btn-contained:active {
   border-color: $margin-blue;
   outline: none;
-}
-
-.btn-lock {
-  width: 100%;
 }
