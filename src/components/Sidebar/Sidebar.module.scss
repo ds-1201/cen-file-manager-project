@@ -2,9 +2,10 @@
 
 .sidebar {
   background-color: $bg-gray;
-  flex: 0.25;
-  width: 100%;
-  min-height: 100vh;
+  width: 350px;
+  height: 100%;
+  position: fixed;
+  overflow: auto;
 }
 
 .sidebar__outer-container {
@@ -83,12 +84,14 @@
   font-weight: bold;
   font-size: 1rem;
   letter-spacing: -0.02em;
+  border-radius: 5px;
 }
 
 .btn-outlined {
   border: 2px solid $text-blue;
   background-color: inherit;
   color: $text-blue;
+  transition: all 0.2s;
 }
 
 .btn-outlined:hover {
@@ -104,6 +107,7 @@
   background-color: $text-blue;
   color: $text-white;
   border-color: $margin-blue;
+  transition: all 0.2s;
 }
 
 .btn-contained:active {

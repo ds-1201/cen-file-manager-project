@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "./Sidebar.module.scss";
+
+import SidebarList from "./../SidebarList/SidebarList";
+
 import logo from "./../../assets/company_logo.png";
-// import add_file from "./../../assets/add_file.svg";
 import AddFileIcon from "./../../assets/AddFileIcon";
 import AddFolderIcon from "./../../assets/AddFolderIcon";
 import lock_icon from "./../../assets/lock_icon.png";
@@ -27,7 +29,9 @@ const Sidebar = () => {
             </div>
           </div>
 
-          <div className={styles["sidebar__list-box"]}></div>
+          <div className={styles["sidebar__list-box"]}>
+            <SidebarList />
+          </div>
           <div className={styles["sidebar__lock-box"]}>
             <button
               className={`${styles["btn"]} ${styles["btn-contained"]} ${styles["btn-lock"]}`}
