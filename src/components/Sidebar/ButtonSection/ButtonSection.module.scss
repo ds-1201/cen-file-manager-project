@@ -1,0 +1,38 @@
+@import "styles/variables";
+
+.sidebar__button-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-outlined {
+  border: 2px solid $text-blue;
+  background-color: inherit;
+  color: $text-blue;
+  transition: all 0.2s;
+}
+
+.btn-outlined:hover {
+  background-color: $bg-blue;
+  color: $text-white;
+  outline: none;
+  & path {
+    stroke: $text-white;
+  }
+}
+
+.btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  border-radius: 5px;
+}

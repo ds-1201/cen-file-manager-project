@@ -1,55 +1,95 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import styles from "./Sidebar.module.scss";
-
+import PropTypes from "prop-types";
 import SidebarList from "./../SidebarList/SidebarList";
-
+import ButtonSection from "./ButtonSection/ButtonSection";
 import logo from "./../../assets/company_logo.png";
-import AddFileIcon from "./../../assets/AddFileIcon";
-import AddFolderIcon from "./../../assets/AddFolderIcon";
 import lock_icon from "./../../assets/lock_icon.png";
 
-const Sidebar = () => {
-  console.log(lock_icon);
-  return (
-    <div className={styles["sidebar"]}>
-      <div className={styles["sidebar__outer-container"]}>
-        <div className={styles["sidebar__inner-container"]}>
-          <div>
-            <div className={styles["sidebar__logo-box"]}>
-              <img src={logo} alt="[Company-logo]" />
-            </div>
-            <div className={styles["sidebar__button-box"]}>
-              <button className={`${styles["btn"]} ${styles["btn-outlined"]}`}>
-                <AddFileIcon />
-                Add File
-              </button>
-              <button className={`${styles["btn"]} ${styles["btn-outlined"]}`}>
-                <AddFolderIcon /> Add Folder
-              </button>
-            </div>
-          </div>
+const Sidebar = ({ sidebarWidth, setSidebarWidth }) => {
+  const sidebarRef = useRef(null);
+  const [isResizing, setIsResizing] = useState(false);
 
-          <div className={styles["sidebar__list-box"]}>
-            <SidebarList />
+  const startResizing = React.useCallback(() => {
+    setIsResizing(true);
+  }, []);
+
+  const stopResizing = React.useCallback(() => {
+    setIsResizing(false);
+  }, []);
+
+  const resize = React.useCallback(
+    (mouseMoveEvent) => {
+      if (isResizing) {
+        const value =
+          mouseMoveEvent.clientX -
+          sidebarRef.current.getBoundingClientRect().left;
+        setSidebarWidth(value <= 320 ? 320 : value);
+        console.log(
+          mouseMoveEvent.clientX,
+          sidebarRef.current.getBoundingClientRect().left,
+        );
+      }
+    },
+    [isResizing],
+  );
+
+  React.useEffect(() => {
+    window.addEventListener("mousemove", resize);
+    window.addEventListener("mouseup", stopResizing);
+    return () => {
+      window.removeEventListener("mousemove", resize);
+      window.removeEventListener("mouseup", stopResizing);
+    };
+  }, [resize, stopResizing]);
+
+  return (
+    <>
+      <div
+        className={styles["sidebar"]}
+        style={{ width: sidebarWidth }}
+        onMouseDown={(e) => e.preventDefault()}
+        ref={sidebarRef}
+      >
+        <div className={styles["sidebar__outer-container"]}>
+          <div className={styles["sidebar__inner-container"]}>
+            <div>
+              <div className={styles["sidebar__logo-box"]}>
+                <img src={logo} alt="[Company-logo]" />
+              </div>
+            </div>
+            <ButtonSection />
+
+            <div className={styles["sidebar__list-box"]}>
+              <SidebarList />
+            </div>
+            <div className={styles["sidebar__lock-box"]}>
+              <button
+                className={`${styles["btn"]} ${styles["btn-contained"]} ${styles["btn-lock"]}`}
+              >
+                <i>
+                  <img src={lock_icon} alt="" width="90%" />{" "}
+                </i>
+                Lock now
+              </button>
+            </div>
           </div>
-          <div className={styles["sidebar__lock-box"]}>
-            <button
-              className={`${styles["btn"]} ${styles["btn-contained"]} ${styles["btn-lock"]}`}
-            >
-              <i>
-                <img src={lock_icon} alt="" width="90%" />{" "}
-              </i>
-              Lock now
-            </button>
+          <div
+            className={styles["sidebar__scroller"]}
+            onMouseDown={startResizing}
+          >
+            <div></div>
+            <div></div>
           </div>
-        </div>
-        <div className={styles["sidebar__scroller"]}>
-          <div></div>
-          <div></div>
         </div>
       </div>
-    </div>
+    </>
   );
+};
+
+Sidebar.propTypes = {
+  sidebarWidth: PropTypes.number.isRequired,
+  setSidebarWidth: PropTypes.func.isRequired,
 };
 
 export default Sidebar;

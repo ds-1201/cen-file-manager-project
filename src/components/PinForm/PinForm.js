@@ -4,9 +4,9 @@ import PinBox from "components/PinBox/PinBox";
 
 const PinForm = () => {
   return (
-    <div className={styles["modal__box__container"]}>
-      <h2 className={styles["modal__title"]}>Enter Account Pin</h2>
-      <div className={styles["modal__pin-box"]}>
+    <div className={styles["pin-form"]}>
+      <h2 className={styles["title"]}>Enter Account Pin</h2>
+      <div className={styles["pin-box"]}>
         <PinBox />
       </div>
       <button className={`${styles["btn"]} ${styles["btn-submit"]}`}>
