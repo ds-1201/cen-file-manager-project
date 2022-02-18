@@ -48,7 +48,6 @@ const Sidebar = ({ sidebarWidth, setSidebarWidth }) => {
       <div
         className={styles["sidebar"]}
         style={{ width: sidebarWidth }}
-        onMouseDown={(e) => e.preventDefault()}
         ref={sidebarRef}
       >
         <div className={styles["sidebar__outer-container"]}>

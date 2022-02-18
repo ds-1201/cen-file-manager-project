@@ -1,14 +1,14 @@
 import propTypes from "prop-types";
-import React, { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useEffect, useReducer } from "react";
 
 const GlobalContext = createContext();
 
 const initialState = {
-  open: false,
-  type: "",
+  depth: 0,
+  list: [],
 };
 
-const modalReducer = (state, action) => {
+const folderListReducer = (state, action) => {
   switch (action.type) {
     case "CLOSE":
       return { ...state, open: false, type: "" };
@@ -19,25 +19,25 @@ const modalReducer = (state, action) => {
   }
 };
 
-export const useModalOpen = () => {
+export const useFolderList = () => {
   return useContext(GlobalContext);
 };
 
-const ModalOpenContext = ({ children }) => {
-  const [modal, modalDispatch] = useReducer(modalReducer, initialState);
+const FolderListContext = ({ children }) => {
+  const [fList, fListDispatch] = useReducer(folderListReducer, initialState);
 
-  // useEffect(() => {
-  //   console.log({ modal });
-  // }, [modal]);
+  useEffect(() => {
+    console.log({ fList });
+  }, [fList]);
 
-  const value = { modal, modalDispatch };
+  const value = { fList, fListDispatch };
   return (
     <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>
   );
 };
 
-ModalOpenContext.propTypes = {
+FolderListContext.propTypes = {
   children: propTypes.any.isRequired,
 };
 
-export default ModalOpenContext;
+export default FolderListContext;

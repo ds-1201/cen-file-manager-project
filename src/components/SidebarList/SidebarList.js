@@ -4,12 +4,22 @@ import SidebarItem from "./SidebarItem/SidebarItem";
 import { links } from "./Data";
 
 const SidebarList = () => {
+  let depth = 0;
+  let menuList = [];
   return (
-    <ul className={styles["list"]}>
+    <div className={styles["list"]}>
       {links.map((link, i) => {
-        return <SidebarItem key={i} link={link} />;
+        return (
+          <SidebarItem
+            key={i}
+            link={link}
+            depth={depth + 1}
+            menuList={menuList}
+            style={{ marginLeft: `${depth * 1.2}rem` }}
+          />
+        );
       })}
-    </ul>
+    </div>
   );
 };
 

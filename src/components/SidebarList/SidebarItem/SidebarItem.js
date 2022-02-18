@@ -1,43 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./SidebarItem.module.scss";
 import PropTypes from "prop-types";
 import FolderStart from "assets/FolderStart";
 import FolderEnd from "assets/FolderEnd";
-const SidebarItem = ({ link }) => {
-  const { label, children = [] } = link;
-  return (
-    <li>
-      {children.length > 0 ? (
-        <>
-          <div className={styles["item"]}>
-            {" "}
-            <FolderStart /> {label}
-          </div>
-          <ul>
-            {children.map((child, i) => {
-              return <SidebarItem key={i} link={child} />;
-            })}
-          </ul>
 
-          <div className={styles["item"]}>
+const SidebarItem = ({ link, depth, style }) => {
+  const { label } = link;
+  const [dropDownOpen, setDropDownOpen] = useState(false);
+
+  return (
+    <>
+      {link.children ? (
+        <div className={styles["sidebar-item"]} style={style}>
+          <div
+            className={styles["item"]}
+            onClick={() => setDropDownOpen((prev) => !prev)}
+          >
             {" "}
-            <FolderEnd /> {label}
+            {dropDownOpen ? <FolderStart /> : <FolderEnd />} {label}
           </div>
-        </>
+          {dropDownOpen && link.children.length > 0 && (
+            <div className={styles["item__container"]}>
+              {link.children.map((child, i) => {
+                return (
+                  <SidebarItem
+                    key={i}
+                    link={child}
+                    depth={depth + 1}
+                    style={{ marginLeft: `${depth * 1.2}rem` }}
+                  />
+                );
+              })}
+            </div>
+          )}
+
+          {dropDownOpen && link.children?.length > 0 && (
+            <div
+              className={styles["item"]}
+              onClick={() => setDropDownOpen((prev) => !prev)}
+            >
+              <FolderEnd /> {label}
+            </div>
+          )}
+        </div>
       ) : (
-        <>
-          <div className={styles["item"]}>
-            {" "}
-            <FolderEnd /> {label}
-          </div>
-        </>
+        <div style={{ display: "none" }}></div>
       )}
-    </li>
+    </>
   );
 };
 
 SidebarItem.propTypes = {
   link: PropTypes.object.isRequired,
+  depth: PropTypes.number.isRequired,
+  style: PropTypes.object.isRequired,
+  menuList: PropTypes.array.isRequired,
 };
 
 export default SidebarItem;

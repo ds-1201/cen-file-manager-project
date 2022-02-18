@@ -5,12 +5,12 @@ import PropTypes from "prop-types";
 
 const Modal = ({ children }) => {
   const modalRef = useRef(null);
-  const { setModalOpen } = useModalOpen();
+  const { modalDispatch } = useModalOpen();
 
   const handleClick = (e) => {
     e.preventDefault();
     if (modalRef.current && !modalRef.current.contains(e.target)) {
-      setModalOpen(false);
+      modalDispatch({ type: "CLOSE" });
     }
   };
 
@@ -22,7 +22,7 @@ const Modal = ({ children }) => {
   }, [handleClick]);
 
   return (
-    <div className={styles["modal"]} onMouseDown={(e) => e.preventDefault()}>
+    <div className={styles["modal"]}>
       <div className={styles["modal__box"]} ref={modalRef}>
         {children}
       </div>

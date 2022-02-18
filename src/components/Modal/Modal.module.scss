@@ -2,16 +2,16 @@
 
 .modal {
   background-color: $bg-modal;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   display: flex;
-  overflow: hidden;
+  overflow: auto;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 2;
 }
 
 .modal__box {

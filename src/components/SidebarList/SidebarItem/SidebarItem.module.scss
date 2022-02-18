@@ -1,13 +1,29 @@
 @import "styles/variables";
 
-// .item {
-//   width: 100%;
-//   padding: 7px 15px;
-//   background-color: $bg-dark-gray;
-//   font-style: normal;
-//   font-weight: normal;
-//   font-size: 16px;
-//   line-height: 28px;
-//   letter-spacing: -0.02em;
-//   color: $text-gray;
-// }
+.item {
+  padding: 7px 15px;
+  background-color: $bg-dark-gray;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  color: $text-gray;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  transition: all 0.5s;
+  border: 1px solid $margin-gray;
+  border-radius: 5px;
+}
+
+.item:hover {
+  background-color: $bg-white;
+  color: $text-blue;
+  & path {
+    stroke: $text-blue;
+  }
+}
+
+.item__container {
+  border-left: 1px solid $margin-dark;
+}
