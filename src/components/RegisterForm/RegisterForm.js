@@ -28,12 +28,14 @@ const RegisterForm = () => {
             className={styles["registerPage____input"]}
           />
         </div>
-        <button
-          className={`${styles["btn"]} ${styles["btn-submit"]}`}
-          type="submit"
-        >
-          <Link to="/">Save Changes</Link>
-        </button>
+        <Link to="/">
+          <button
+            className={`${styles["btn"]} ${styles["btn-submit"]}`}
+            type="submit"
+          >
+            Save Changes
+          </button>
+        </Link>
       </form>
     </div>
   );

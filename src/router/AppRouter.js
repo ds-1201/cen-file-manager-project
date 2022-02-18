@@ -5,7 +5,7 @@ import HomePage from "pages/HomePage/HomePage";
 
 const AppRouter = () => {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route exact path="/" element={<MainPage />} />
         <Route exact path="/register" element={<HomePage />} />

@@ -15,6 +15,9 @@ const PinForm = () => {
       <div className={styles["pin-box"]}>
         <PinBox />
       </div>
+      <p style={{ color: "red" }}>
+        Work In Progress Press Enter To Continue :)
+      </p>
       <button
         className={`${styles["btn"]} ${styles["btn-submit"]}`}
         onClick={handleClick}
