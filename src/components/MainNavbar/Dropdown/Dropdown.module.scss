@@ -1,0 +1,23 @@
+@import "styles/variables";
+
+.setting-dropdown {
+  width: 125px;
+  background-color: $bg-white;
+  border: 3px solid $margin-dark;
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 20%;
+  border-radius: 10px;
+  list-style: none;
+  & li {
+    padding: 0.5rem;
+  }
+  & a {
+    text-decoration: none;
+    color: $text-black;
+  }
+  & a:hover {
+    text-decoration: underline;
+  }
+}

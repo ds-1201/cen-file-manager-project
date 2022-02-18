@@ -6,6 +6,10 @@
   width: 60%;
   padding: 48px 16px;
   margin: 300px auto;
+  & a {
+    text-decoration: none;
+    color: $text-white;
+  }
 }
 
 .registerPage____form-title {
