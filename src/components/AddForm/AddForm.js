@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 const AddForm = ({ type }) => {
   const [newItem, setNewItem] = useState({
+    id: Math.random().toString(),
     label: "",
     type: type,
     ...(type === "Folder" && { children: [] }),
@@ -13,6 +14,7 @@ const AddForm = ({ type }) => {
     e.preventDefault();
     console.log(newItem);
     setNewItem({
+      id: Math.random().toString(),
       label: "",
       type: type,
       ...(type === "Folder" && { children: [] }),

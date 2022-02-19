@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React, { useContext, createContext, useReducer } from "react";
-import { links } from "./StartData";
+import { links } from "../../StartData";
 
 const initialState = links;
 

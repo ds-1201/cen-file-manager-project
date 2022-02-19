@@ -5,6 +5,7 @@ import SunLogo from "./../../assets/SunLogo";
 import PlusIcon from "./../../assets/PlusIcon";
 import CogIcon from "./../../assets/CogIcon";
 import Dropdown from "./Dropdown/Dropdown";
+import { useFolderList } from "context/FolderList/FolderListContext";
 import {
   settingDropDownList,
   ModeDropDownList,
@@ -15,6 +16,7 @@ const MainNavbar = () => {
   const [settingDropDown, setSettingDropdown] = useState(false);
   const [addDropDown, setAddDropdown] = useState(false);
   const [modeDropDown, setModeDropdown] = useState(false);
+  const { fList } = useFolderList();
   return (
     <div className={styles["navbar"]}>
       <div className={styles["navbar__top"]}>
@@ -80,9 +82,16 @@ const MainNavbar = () => {
       </div>
       <div className={styles["navbar__breadCrumb"]}>
         <h3>
+          <span>Root </span>
+          {fList?.map((item) => {
+            return <span key={item.id}> / {item.label}</span>;
+          })}
+        </h3>
+
+        {/* <h3>
           Some Folder name / file1 /{" "}
           <span className={styles["navbar__current-file"]}>file2</span>
-        </h3>
+        </h3> */}
       </div>
     </div>
   );

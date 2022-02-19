@@ -1,21 +1,40 @@
 import propTypes from "prop-types";
 import React, { createContext, useContext, useEffect, useReducer } from "react";
+import { links } from "StartData";
 
 const GlobalContext = createContext();
 
-const initialState = {
-  depth: 0,
-  list: [],
+const initialState = [];
+
+const findActive = (item, parent) => {
+  const flist = parent?.filter((p) => p.type === "Folder");
+  if (flist?.length === 0) {
+    return [];
+  }
+  for (let i = 0; i < flist.length; i++) {
+    let link = flist[i];
+    let list = [];
+    if (link.id === item.id) {
+      list.push(link);
+      return list;
+    }
+    let small = findActive(item, link.children);
+    if (small?.length > 0) {
+      small.unshift(link);
+      return small;
+    }
+  }
+  return [];
 };
 
 const folderListReducer = (state, action) => {
   switch (action.type) {
-    case "CLOSE":
-      return { ...state, open: false, type: "" };
-    case "OPEN":
-      return { ...state, open: true, type: action.payload };
+    case "ACTIVE": {
+      const ans = findActive(action.payload, links);
+      return ans;
+    }
     default:
-      return { ...state };
+      return state;
   }
 };
 

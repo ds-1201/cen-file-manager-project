@@ -10,10 +10,10 @@ const SidebarList = () => {
   const links = lists?.filter((list) => list.type === "Folder");
   return (
     <div className={styles["list"]}>
-      {links.map((link, i) => {
+      {links.map((link) => {
         return (
           <SidebarItem
-            key={i}
+            key={link.id}
             link={link}
             depth={depth + 1}
             menuList={menuList}
