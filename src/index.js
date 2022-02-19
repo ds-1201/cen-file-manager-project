@@ -1,3 +1,4 @@
+import DataContext from "context/Data/DataContext";
 import FolderListContext from "context/FolderList/FolderListContext";
 import React from "react";
 import ReactDOM from "react-dom";
@@ -6,11 +7,13 @@ import ModalOpenContext from "./context/ModalOpen/ModalOpenContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <FolderListContext>
-      <ModalOpenContext>
-        <App />
-      </ModalOpenContext>
-    </FolderListContext>
+    <DataContext>
+      <FolderListContext>
+        <ModalOpenContext>
+          <App />
+        </ModalOpenContext>
+      </FolderListContext>
+    </DataContext>
   </React.StrictMode>,
   document.getElementById("root"),
 );
