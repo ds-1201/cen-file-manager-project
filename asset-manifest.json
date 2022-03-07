@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/cen-file-manager-project/static/css/main.92ac508e.css",
-    "main.js": "/cen-file-manager-project/static/js/main.d9b41e32.js",
+    "main.css": "/cen-file-manager-project/static/css/main.118ffcb9.css",
+    "main.js": "/cen-file-manager-project/static/js/main.00612451.js",
     "static/media/register_img.png": "/cen-file-manager-project/static/media/register_img.fa85ae53ee4da2b20490.png",
     "index.html": "/cen-file-manager-project/index.html",
-    "main.92ac508e.css.map": "/cen-file-manager-project/static/css/main.92ac508e.css.map",
-    "main.d9b41e32.js.map": "/cen-file-manager-project/static/js/main.d9b41e32.js.map"
+    "main.118ffcb9.css.map": "/cen-file-manager-project/static/css/main.118ffcb9.css.map",
+    "main.00612451.js.map": "/cen-file-manager-project/static/js/main.00612451.js.map"
   },
   "entrypoints": [
-    "static/css/main.92ac508e.css",
-    "static/js/main.d9b41e32.js"
+    "static/css/main.118ffcb9.css",
+    "static/js/main.00612451.js"
   ]
 }
