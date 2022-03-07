@@ -25,11 +25,6 @@ export const useModalOpen = () => {
 
 const ModalOpenContext = ({ children }) => {
   const [modal, modalDispatch] = useReducer(modalReducer, initialState);
-
-  // useEffect(() => {
-  //   console.log({ modal });
-  // }, [modal]);
-
   const value = { modal, modalDispatch };
   return (
     <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>

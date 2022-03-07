@@ -1,12 +1,13 @@
 import React from "react";
 import styles from "./App.module.scss";
 import PropTypes from "prop-types";
+import FileIcon from "assets/FileIcon";
 
 const AppItem = ({ app }) => {
   return (
     <div className={styles["app-item"]}>
-      {app.icon}
-      <p>{app.name}</p>
+      <FileIcon />
+      <p>{app.label}</p>
     </div>
   );
 };

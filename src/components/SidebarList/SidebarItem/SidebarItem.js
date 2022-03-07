@@ -28,7 +28,7 @@ const SidebarItem = ({ link, depth, style, menuList }) => {
         {" "}
         {dropDownOpen ? <FolderStart /> : <FolderEnd />} {label}
       </div>
-      {dropDownOpen && children?.length > 0 && (
+      {dropDownOpen && (
         <div className={styles["item__container"]}>
           {links.map((child) => {
             return (
@@ -44,7 +44,7 @@ const SidebarItem = ({ link, depth, style, menuList }) => {
         </div>
       )}
 
-      {dropDownOpen && children?.length > 0 && (
+      {dropDownOpen && (
         <div
           className={styles["item"]}
           onClick={() => setDropDownOpen((prev) => !prev)}

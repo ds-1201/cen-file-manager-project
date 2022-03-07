@@ -1,10 +1,13 @@
 import propTypes from "prop-types";
 import React, { createContext, useContext, useEffect, useReducer } from "react";
-import { links } from "StartData";
+import { useData } from "./../Data/DataContext";
 
 const GlobalContext = createContext();
 
-const initialState = [];
+const initialState = {
+  list: [],
+  active: "",
+};
 
 const findActive = (item, parent) => {
   const flist = parent?.filter((p) => p.type === "Folder");
@@ -27,22 +30,27 @@ const findActive = (item, parent) => {
   return [];
 };
 
-const folderListReducer = (state, action) => {
-  switch (action.type) {
-    case "ACTIVE": {
-      const ans = findActive(action.payload, links);
-      return ans;
-    }
-    default:
-      return state;
-  }
-};
-
 export const useFolderList = () => {
   return useContext(GlobalContext);
 };
 
 const FolderListContext = ({ children }) => {
+  const { lists } = useData();
+
+  const folderListReducer = (state, action) => {
+    switch (action.type) {
+      case "ACTIVE": {
+        const ans = findActive(action.payload, lists);
+        return { ...state, list: ans, active: action.payload };
+      }
+      case "ROOT": {
+        return { ...state, list: [], active: "" };
+      }
+      default:
+        return state;
+    }
+  };
+
   const [fList, fListDispatch] = useReducer(folderListReducer, initialState);
 
   useEffect(() => {

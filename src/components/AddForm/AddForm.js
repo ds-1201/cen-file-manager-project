@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import styles from "./AddForm.module.scss";
 import PropTypes from "prop-types";
+import { useFolderList } from "context/FolderList/FolderListContext";
+import { useData } from "context/Data/DataContext";
+import { useModalOpen } from "context/ModalOpen/ModalOpenContext";
 
 const AddForm = ({ type }) => {
+  const { fList } = useFolderList();
+  const { listsDispatch } = useData();
+  const { modalDispatch } = useModalOpen();
   const [newItem, setNewItem] = useState({
     id: Math.random().toString(),
     label: "",
@@ -12,13 +18,20 @@ const AddForm = ({ type }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(newItem);
+    listsDispatch({
+      type: "ADD",
+      payload: newItem,
+      add: newItem.type,
+      active: fList.active,
+    });
     setNewItem({
       id: Math.random().toString(),
       label: "",
       type: type,
       ...(type === "Folder" && { children: [] }),
     });
+
+    modalDispatch({ type: "CLOSE" });
   };
   return (
     <form className={styles["add-form"]}>

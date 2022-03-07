@@ -16,7 +16,7 @@ const MainNavbar = () => {
   const [settingDropDown, setSettingDropdown] = useState(false);
   const [addDropDown, setAddDropdown] = useState(false);
   const [modeDropDown, setModeDropdown] = useState(false);
-  const { fList } = useFolderList();
+  const { fList, fListDispatch } = useFolderList();
   return (
     <div className={styles["navbar"]}>
       <div className={styles["navbar__top"]}>
@@ -82,9 +82,22 @@ const MainNavbar = () => {
       </div>
       <div className={styles["navbar__breadCrumb"]}>
         <h3>
-          <span>Root </span>
-          {fList?.map((item) => {
-            return <span key={item.id}> / {item.label}</span>;
+          <span
+            className={styles["navbar__folderName"]}
+            onClick={() => fListDispatch({ type: "ROOT" })}
+          >
+            Root
+          </span>
+          {fList.list?.map((item) => {
+            return (
+              <span key={item.id}>
+                {" "}
+                /{" "}
+                <span className={styles["navbar__folderName"]}>
+                  {item.label}
+                </span>
+              </span>
+            );
           })}
         </h3>
 

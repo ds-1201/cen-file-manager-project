@@ -87,7 +87,10 @@
   & h3 {
     font-weight: normal;
   }
-  & span {
+
+  .navbar__folderName:hover {
+    text-decoration: underline;
+    cursor: pointer;
     font-weight: bold;
   }
 }
