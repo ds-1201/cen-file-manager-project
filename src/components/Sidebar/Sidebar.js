@@ -5,10 +5,12 @@ import SidebarList from "./../SidebarList/SidebarList";
 import ButtonSection from "./ButtonSection/ButtonSection";
 import logo from "./../../assets/company_logo.png";
 import lock_icon from "./../../assets/lock_icon.png";
+import { useModalOpen } from "context/ModalOpen/ModalOpenContext";
 
 const Sidebar = ({ sidebarWidth, setSidebarWidth }) => {
   const sidebarRef = useRef(null);
   const [isResizing, setIsResizing] = useState(false);
+  const { modalDispatch } = useModalOpen();
 
   const startResizing = React.useCallback(() => {
     setIsResizing(true);
@@ -65,6 +67,7 @@ const Sidebar = ({ sidebarWidth, setSidebarWidth }) => {
             <div className={styles["sidebar__lock-box"]}>
               <button
                 className={`${styles["btn"]} ${styles["btn-contained"]} ${styles["btn-lock"]}`}
+                onClick={() => modalDispatch({ type: "OPEN", payload: "Lock" })}
               >
                 <i>
                   <img src={lock_icon} alt="" width="90%" />{" "}

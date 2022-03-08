@@ -19,6 +19,17 @@ const updateState = (newItem, parent, active) => {
   return parent;
 };
 
+const editFile = (content, parent, active) => {
+  for (let i = 0; i < parent.length; i++) {
+    if (parent[i].id === active.id) {
+      parent[i].content = content;
+      return parent;
+    }
+    parent[i] = editFile(content, parent[i], active);
+  }
+  return parent;
+};
+
 const GlobalContext = createContext();
 
 export const useData = () => {
@@ -30,6 +41,11 @@ const listsReducer = (state, action) => {
     case "ADD": {
       let data = state;
       const temp = updateState(action.payload, data, action.active);
+      return temp;
+    }
+    case "EDIT": {
+      let data = state;
+      const temp = editFile(action.payload, data, action.active);
       return temp;
     }
 

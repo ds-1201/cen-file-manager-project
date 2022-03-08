@@ -18,6 +18,10 @@ const AddForm = ({ type }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (newItem.label.trim() === "") {
+      alert(`${type} Name cannot be empty!!!`);
+      return;
+    }
     listsDispatch({
       type: "ADD",
       payload: newItem,
@@ -28,7 +32,7 @@ const AddForm = ({ type }) => {
       id: Math.random().toString(),
       label: "",
       type: type,
-      ...(type === "Folder" && { children: [] }),
+      ...(type === "Folder" ? { children: [] } : { content: "" }),
     });
 
     modalDispatch({ type: "CLOSE" });

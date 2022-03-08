@@ -1,9 +1,11 @@
 export const settingDropDownList = [
   {
     name: "Change Pin",
+    type: "Reset",
   },
   {
     name: "LogOut",
+    type: "Lock",
   },
 ];
 

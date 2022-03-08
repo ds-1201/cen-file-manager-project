@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./SidebarItem.module.scss";
 import PropTypes from "prop-types";
 import FolderStart from "assets/FolderStart";
@@ -11,10 +11,6 @@ const SidebarItem = ({ link, depth, style, menuList }) => {
   const [dropDownOpen, setDropDownOpen] = useState(false);
 
   const links = children?.filter((child) => child.type === "Folder");
-
-  useEffect(() => {
-    console.log("useeffect");
-  }, []);
 
   return (
     <div className={styles["sidebar-item"]} style={style}>

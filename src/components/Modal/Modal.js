@@ -1,16 +1,23 @@
 import React, { useRef, useEffect } from "react";
 import styles from "./Modal.module.scss";
 import { useModalOpen } from "context/ModalOpen/ModalOpenContext";
+import { useActiveFile } from "context/File/FileContext";
 import PropTypes from "prop-types";
 
 const Modal = ({ children }) => {
   const modalRef = useRef(null);
-  const { modalDispatch } = useModalOpen();
+  const { activeFileDispatch } = useActiveFile();
+  const { modal, modalDispatch } = useModalOpen();
 
   const handleClick = (e) => {
     e.preventDefault();
     if (modalRef.current && !modalRef.current.contains(e.target)) {
-      modalDispatch({ type: "CLOSE" });
+      if (modal.type === "Edit") {
+        activeFileDispatch({ type: "INACTIVE" });
+      }
+      if (modal.type !== "Lock") {
+        modalDispatch({ type: "CLOSE" });
+      }
     }
   };
 

@@ -1,5 +1,5 @@
 import propTypes from "prop-types";
-import React, { createContext, useContext, useEffect, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import { useData } from "./../Data/DataContext";
 
 const GlobalContext = createContext();
@@ -52,10 +52,6 @@ const FolderListContext = ({ children }) => {
   };
 
   const [fList, fListDispatch] = useReducer(folderListReducer, initialState);
-
-  useEffect(() => {
-    console.log({ fList });
-  }, [fList]);
 
   const value = { fList, fListDispatch };
   return (

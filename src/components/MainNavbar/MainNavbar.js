@@ -40,6 +40,7 @@ const MainNavbar = () => {
                   modeDropDown ? { display: "block" } : { display: "none" }
                 }
                 items={ModeDropDownList}
+                setDropdown={setModeDropdown}
               />
             </div>
 
@@ -57,6 +58,7 @@ const MainNavbar = () => {
               <Dropdown
                 style={addDropDown ? { display: "block" } : { display: "none" }}
                 items={AddDropDownList}
+                setDropdown={setAddDropdown}
               />
             </div>
             <div>
@@ -75,6 +77,7 @@ const MainNavbar = () => {
                   settingDropDown ? { display: "block" } : { display: "none" }
                 }
                 items={settingDropDownList}
+                setDropdown={setSettingDropdown}
               />
             </div>
           </div>
