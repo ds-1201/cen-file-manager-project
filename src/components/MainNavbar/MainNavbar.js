@@ -96,18 +96,18 @@ const MainNavbar = () => {
               <span key={item.id}>
                 {" "}
                 /{" "}
-                <span className={styles["navbar__folderName"]}>
+                <span
+                  className={styles["navbar__folderName"]}
+                  onClick={() =>
+                    fListDispatch({ type: "ACTIVE", payload: item })
+                  }
+                >
                   {item.label}
                 </span>
               </span>
             );
           })}
         </h3>
-
-        {/* <h3>
-          Some Folder name / file1 /{" "}
-          <span className={styles["navbar__current-file"]}>file2</span>
-        </h3> */}
       </div>
     </div>
   );
