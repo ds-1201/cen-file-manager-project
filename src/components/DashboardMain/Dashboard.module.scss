@@ -5,4 +5,9 @@
   height: 100%;
   padding: 2rem;
   overflow: hidden;
+  min-height: 100vh;
+}
+
+.dark__dashboard-main {
+  background-color: $bg-modal;
 }

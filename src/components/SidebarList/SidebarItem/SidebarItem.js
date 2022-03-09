@@ -4,9 +4,11 @@ import PropTypes from "prop-types";
 import FolderStart from "assets/FolderStart";
 import FolderEnd from "assets/FolderEnd";
 import { useFolderList } from "context/FolderList/FolderListContext";
+import { useMode } from "context/Mode/ModeContext";
 
 const SidebarItem = ({ link, depth, style, menuList }) => {
   const { fListDispatch } = useFolderList();
+  const { isDark } = useMode();
   const { label, children } = link;
   const [dropDownOpen, setDropDownOpen] = useState(false);
 
@@ -15,7 +17,7 @@ const SidebarItem = ({ link, depth, style, menuList }) => {
   return (
     <div className={styles["sidebar-item"]} style={style}>
       <div
-        className={styles["item"]}
+        className={!isDark ? styles["dark__item"] : styles["item"]}
         onClick={() => {
           setDropDownOpen((prev) => !prev);
           fListDispatch({ type: "ACTIVE", payload: link });

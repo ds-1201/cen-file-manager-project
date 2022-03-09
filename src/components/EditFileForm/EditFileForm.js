@@ -5,9 +5,11 @@ import styles from "./EditFileForm.module.scss";
 import { useModalOpen } from "context/ModalOpen/ModalOpenContext";
 import { useActiveFile } from "context/File/FileContext";
 import { useData } from "context/Data/DataContext";
+import { useMode } from "context/Mode/ModeContext";
 
 export default function EditorFileForm() {
   const { modalDispatch } = useModalOpen();
+  const { isDark } = useMode();
   const { activeFile, activeFileDispatch } = useActiveFile();
   const { listsDispatch } = useData();
   const [editorValue, setEditorValue] = useState(activeFile.content);
@@ -20,7 +22,7 @@ export default function EditorFileForm() {
 
   return (
     <div className={styles["edit-form"]}>
-      <h2 className={styles["title"]}>
+      <h2 className={`${styles["title"]} ${!isDark && styles["dark__title"]}`}>
         Edit File Content: {`"${activeFile.label}"`}
       </h2>
       <textarea
@@ -30,7 +32,9 @@ export default function EditorFileForm() {
       />
       <button
         type="submit"
-        className={`${styles["btn"]} ${styles["btn-submit"]}`}
+        className={`${!isDark ? styles["dark__btn"] : styles["btn"]} ${
+          !isDark ? styles["dark__btn-submit"] : styles["btn-submit"]
+        }`}
         onClick={handleSubmit}
       >
         Save File.

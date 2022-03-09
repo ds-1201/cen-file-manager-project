@@ -8,6 +8,10 @@
   padding-bottom: 2rem;
 }
 
+.dark__navbar {
+  color: $text-white;
+}
+
 .navbar__top {
   text-transform: capitalize;
 }
@@ -64,11 +68,30 @@
   }
 }
 
+.dark__btn-outlined {
+  border: 2px solid $text-white;
+  background-color: inherit;
+  color: $text-white;
+  transition: all 0.2s;
+}
+
+.dark__btn-outlined:hover {
+  background-color: $bg-white;
+  color: $text-black;
+  outline: none;
+  & path {
+    stroke: $text-black;
+  }
+}
+
 .btn-outlined-2 {
   border: 2px solid $text-black;
   background-color: inherit;
   color: $text-black;
   transition: all 0.2s;
+  & path {
+    stroke: $text-black;
+  }
 }
 
 .btn-outlined-2:hover {
@@ -80,10 +103,46 @@
   }
 }
 
+.dark__btn-outlined-2 {
+  border: 2px solid $text-white;
+  background-color: inherit;
+  color: $text-white;
+  transition: all 0.2s;
+  & path {
+    stroke: $text-white;
+  }
+}
+
+.dark__btn-outlined-2:hover {
+  background-color: $bg-white;
+  color: $text-black;
+  outline: none;
+  & path {
+    stroke: $text-black;
+  }
+}
+
 .navbar__breadCrumb {
   margin-top: 2.5rem;
   text-transform: capitalize;
   width: 100%;
+  color: $text-black;
+  & h3 {
+    font-weight: normal;
+  }
+
+  .navbar__folderName:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+  }
+}
+
+.dark__navbar__breadCrumb {
+  margin-top: 2.5rem;
+  text-transform: capitalize;
+  width: 100%;
+  color: $text-white;
   & h3 {
     font-weight: normal;
   }

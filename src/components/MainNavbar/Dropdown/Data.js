@@ -20,17 +20,17 @@ export const AddDropDownList = [
   },
 ];
 
-export const ModeDropDownList = [
-  {
-    name: "Light Mode",
-    type: "Mode",
-  },
-  {
-    name: "Dark Mode",
-    type: "Mode",
-  },
-  {
-    name: "Custom Mode",
-    type: "Mode",
-  },
-];
+// export const ModeDropDownList = [
+//   {
+//     name: "Light Mode",
+//     type: "Mode",
+//   },
+//   {
+//     name: "Dark Mode",
+//     type: "Mode",
+//   },
+//   {
+//     name: "Custom Mode",
+//     type: "Mode",
+//   },
+// ];

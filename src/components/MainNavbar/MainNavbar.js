@@ -2,54 +2,50 @@ import React, { useState } from "react";
 import styles from "./MainNavbar.module.scss";
 import Search from "./../SearchForm/SearchForm";
 import SunLogo from "./../../assets/SunLogo";
+import MoonLogo from "assets/MoonLogo";
 import PlusIcon from "./../../assets/PlusIcon";
 import CogIcon from "./../../assets/CogIcon";
 import Dropdown from "./Dropdown/Dropdown";
 import { useFolderList } from "context/FolderList/FolderListContext";
-import {
-  settingDropDownList,
-  ModeDropDownList,
-  AddDropDownList,
-} from "./Dropdown/Data";
+import { settingDropDownList, AddDropDownList } from "./Dropdown/Data";
+import { useMode } from "context/Mode/ModeContext";
 
 const MainNavbar = () => {
   const [settingDropDown, setSettingDropdown] = useState(false);
   const [addDropDown, setAddDropdown] = useState(false);
-  const [modeDropDown, setModeDropdown] = useState(false);
+
   const { fList, fListDispatch } = useFolderList();
+  const { isDark, isDarkDispatch } = useMode();
   return (
-    <div className={styles["navbar"]}>
+    <div className={`${styles["navbar"]} ${isDark && styles["dark__navbar"]}`}>
       <div className={styles["navbar__top"]}>
         <div className={styles["navbar__top__container"]}>
           <Search />
           <div className={styles["navbar__button-section"]}>
             <div>
               <button
-                className={`${styles["btn"]} ${styles["btn-outlined"]}`}
+                className={`${styles["btn"]} ${
+                  styles[isDark ? "btn-outlined" : "dark__btn-outlined"]
+                }`}
                 onClick={() => {
-                  setAddDropdown(false);
-                  setModeDropdown((prev) => !prev);
-                  setSettingDropdown(false);
+                  isDarkDispatch({ type: "CHANGE" });
                 }}
               >
-                <SunLogo />
-                Light Mode
+                {isDark ? <SunLogo /> : <MoonLogo />}
+                {isDark ? "Light Mode" : "Dark Mode"}
               </button>
-              <Dropdown
-                style={
-                  modeDropDown ? { display: "block" } : { display: "none" }
-                }
-                items={ModeDropDownList}
-                setDropdown={setModeDropdown}
-              />
             </div>
 
             <div>
               <button
-                className={`${styles["btn"]} ${styles["btn-outlined-2"]}`}
+                className={`${styles["btn"]} ${
+                  !isDark
+                    ? styles["dark__btn-outlined-2"]
+                    : styles["btn-outlined-2"]
+                }`}
                 onClick={() => {
                   setAddDropdown((prev) => !prev);
-                  setModeDropdown(false);
+
                   setSettingDropdown(false);
                 }}
               >
@@ -63,10 +59,14 @@ const MainNavbar = () => {
             </div>
             <div>
               <button
-                className={`${styles["btn"]} ${styles["btn-outlined-2"]}`}
+                className={`${styles["btn"]} ${
+                  !isDark
+                    ? styles["dark__btn-outlined-2"]
+                    : styles["btn-outlined-2"]
+                }`}
                 onClick={() => {
                   setAddDropdown(false);
-                  setModeDropdown(false);
+
                   setSettingDropdown((prev) => !prev);
                 }}
               >
@@ -83,7 +83,13 @@ const MainNavbar = () => {
           </div>
         </div>
       </div>
-      <div className={styles["navbar__breadCrumb"]}>
+      <div
+        className={
+          !isDark
+            ? styles["dark__navbar__breadCrumb"]
+            : styles["navbar__breadCrumb"]
+        }
+      >
         <h3>
           <span
             className={styles["navbar__folderName"]}

@@ -3,11 +3,15 @@ import styles from "./Dashboard.module.scss";
 import MainNavbar from "./../MainNavbar/MainNavbar";
 import AppList from "components/AppList/AppList";
 import PropTypes from "prop-types";
+import { useMode } from "context/Mode/ModeContext";
 
 const DashboardMain = ({ sidebarWidth }) => {
+  const { isDark } = useMode();
   return (
     <div
-      className={styles["dashboard-main"]}
+      className={`${styles["dashboard-main"]} ${
+        !isDark && styles["dark__dashboard-main"]
+      }`}
       style={{
         marginLeft: sidebarWidth,
       }}

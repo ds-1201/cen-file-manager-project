@@ -3,12 +3,13 @@ import styles from "./Modal.module.scss";
 import { useModalOpen } from "context/ModalOpen/ModalOpenContext";
 import { useActiveFile } from "context/File/FileContext";
 import PropTypes from "prop-types";
+import { useMode } from "context/Mode/ModeContext";
 
 const Modal = ({ children }) => {
   const modalRef = useRef(null);
   const { activeFileDispatch } = useActiveFile();
   const { modal, modalDispatch } = useModalOpen();
-
+  const { isDark } = useMode();
   const handleClick = (e) => {
     e.preventDefault();
     if (modalRef.current && !modalRef.current.contains(e.target)) {
@@ -30,7 +31,10 @@ const Modal = ({ children }) => {
 
   return (
     <div className={styles["modal"]}>
-      <div className={styles["modal__box"]} ref={modalRef}>
+      <div
+        className={!isDark ? styles["dark__modal__box"] : styles["modal__box"]}
+        ref={modalRef}
+      >
         {children}
       </div>
     </div>

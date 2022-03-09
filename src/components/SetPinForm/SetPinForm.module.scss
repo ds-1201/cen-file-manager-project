@@ -21,6 +21,18 @@
   text-align: left;
 }
 
+.dark__title {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  color: $text-white;
+  margin: 0.8rem;
+  text-align: left;
+}
+
 .pin-box {
   margin: 2rem 0;
   & label {
@@ -44,6 +56,25 @@
 
 .btn-submit {
   background: $bg-blue;
+  width: 30%;
+  padding: 3px 8px;
+  margin: 0.5rem auto;
+}
+
+.dark__btn {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  color: $text-black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dark__btn-submit {
+  background: $bg-white;
   width: 30%;
   padding: 3px 8px;
   margin: 0.5rem auto;

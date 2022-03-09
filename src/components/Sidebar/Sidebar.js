@@ -4,13 +4,16 @@ import PropTypes from "prop-types";
 import SidebarList from "./../SidebarList/SidebarList";
 import ButtonSection from "./ButtonSection/ButtonSection";
 import logo from "./../../assets/company_logo.png";
-import lock_icon from "./../../assets/lock_icon.png";
+import logo_dark from "./../../assets/company_logo_dark.png";
 import { useModalOpen } from "context/ModalOpen/ModalOpenContext";
+import { useMode } from "context/Mode/ModeContext";
+import LockIcon from "./../../assets/LockIcon";
 
 const Sidebar = ({ sidebarWidth, setSidebarWidth }) => {
   const sidebarRef = useRef(null);
   const [isResizing, setIsResizing] = useState(false);
   const { modalDispatch } = useModalOpen();
+  const { isDark } = useMode();
 
   const startResizing = React.useCallback(() => {
     setIsResizing(true);
@@ -44,7 +47,7 @@ const Sidebar = ({ sidebarWidth, setSidebarWidth }) => {
   return (
     <>
       <div
-        className={styles["sidebar"]}
+        className={!isDark ? styles["dark__sidebar"] : styles["sidebar"]}
         style={{ width: sidebarWidth }}
         ref={sidebarRef}
       >
@@ -52,7 +55,7 @@ const Sidebar = ({ sidebarWidth, setSidebarWidth }) => {
           <div className={styles["sidebar__inner-container"]}>
             <div>
               <div className={styles["sidebar__logo-box"]}>
-                <img src={logo} alt="[Company-logo]" />
+                <img src={!isDark ? logo_dark : logo} alt="[Company-logo]" />
               </div>
             </div>
             <ButtonSection />
@@ -62,18 +65,24 @@ const Sidebar = ({ sidebarWidth, setSidebarWidth }) => {
             </div>
             <div className={styles["sidebar__lock-box"]}>
               <button
-                className={`${styles["btn"]} ${styles["btn-contained"]} ${styles["btn-lock"]}`}
+                className={`${styles["btn"]} ${
+                  !isDark
+                    ? styles["dark__btn-contained"]
+                    : styles["btn-contained"]
+                }`}
                 onClick={() => modalDispatch({ type: "OPEN", payload: "Lock" })}
               >
-                <i>
-                  <img src={lock_icon} alt="" width="90%" />{" "}
-                </i>
+                <LockIcon />
                 Lock now
               </button>
             </div>
           </div>
           <div
-            className={styles["sidebar__scroller"]}
+            className={
+              !isDark
+                ? styles["dark__sidebar__scroller"]
+                : styles["sidebar__scroller"]
+            }
             onMouseDown={startResizing}
           >
             <div></div>

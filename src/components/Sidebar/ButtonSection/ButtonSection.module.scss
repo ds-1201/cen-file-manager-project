@@ -11,6 +11,9 @@
   background-color: inherit;
   color: $text-blue;
   transition: all 0.2s;
+  & path {
+    stroke: $text-blue;
+  }
 }
 
 .btn-outlined:hover {
@@ -19,6 +22,25 @@
   outline: none;
   & path {
     stroke: $text-white;
+  }
+}
+
+.dark__btn-outlined {
+  border: 2px solid $text-white;
+  background-color: inherit;
+  color: $text-white;
+  transition: all 0.2s;
+  & path {
+    stroke: $text-white;
+  }
+}
+
+.dark__btn-outlined:hover {
+  background-color: $bg-white;
+  color: $text-black;
+  outline: none;
+  & path {
+    stroke: $text-black;
   }
 }
 

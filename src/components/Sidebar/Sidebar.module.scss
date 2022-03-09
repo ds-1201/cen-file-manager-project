@@ -10,6 +10,17 @@
   overflow: auto;
 }
 
+.dark__sidebar {
+  background-color: $bg-black;
+  color: $text-white;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  overflow: auto;
+}
+
 .sidebar__outer-container {
   display: flex;
   align-items: center;
@@ -32,6 +43,25 @@
     height: 30px;
     width: 2px;
     background-color: $bg-modal;
+  }
+}
+
+.dark__sidebar__scroller {
+  width: 1rem;
+  cursor: col-resize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & div:first-of-type {
+    height: 40px;
+    width: 2px;
+    background-color: $bg-white;
+    margin-right: 2px;
+  }
+  & div:last-of-type {
+    height: 30px;
+    width: 2px;
+    background-color: $bg-white;
   }
 }
 
@@ -89,9 +119,27 @@
   color: $text-white;
   border-color: $margin-blue;
   transition: all 0.2s;
+  & path {
+    stroke: $text-white;
+  }
+}
+
+.dark__btn-contained {
+  background-color: $bg-white;
+  color: $text-black;
+  border-color: $margin-white;
+  transition: all 0.2s;
+  & path {
+    stroke: $text-black;
+  }
 }
 
 .btn-contained:active {
   border-color: $margin-blue;
+  outline: none;
+}
+
+.dark__btn-contained:active {
+  border-color: $margin-white;
   outline: none;
 }

@@ -19,9 +19,16 @@
   background-color: $bg-white;
   border: 1px solid $margin-gray;
   text-align: center;
-}
-
-.modal__box {
   padding: 3rem;
   border-radius: 10px;
+}
+
+.dark__modal__box {
+  background-color: $bg-black;
+  border: 1px solid $margin-white;
+  color: $text-white;
+  text-align: center;
+  padding: 3rem;
+  border-radius: 10px;
+  min-height: 300px;
 }

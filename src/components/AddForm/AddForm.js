@@ -4,11 +4,13 @@ import PropTypes from "prop-types";
 import { useFolderList } from "context/FolderList/FolderListContext";
 import { useData } from "context/Data/DataContext";
 import { useModalOpen } from "context/ModalOpen/ModalOpenContext";
+import { useMode } from "context/Mode/ModeContext";
 
 const AddForm = ({ type }) => {
   const { fList } = useFolderList();
   const { listsDispatch } = useData();
   const { modalDispatch } = useModalOpen();
+  const { isDark } = useMode();
   const [label, setLabel] = useState("");
 
   const handleSubmit = (e) => {
@@ -50,7 +52,9 @@ const AddForm = ({ type }) => {
       </div>
       <button
         type="submit"
-        className={`${styles["btn"]} ${styles["btn-submit"]}`}
+        className={`${styles[!isDark ? "dark__btn" : "btn"]} ${
+          styles[!isDark ? "dark__btn-submit" : "btn-submit"]
+        }`}
         onClick={handleSubmit}
       >
         Create Now
