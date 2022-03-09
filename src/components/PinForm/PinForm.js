@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./PinForm.module.scss";
 import PinBox from "components/PinBox/PinBox";
 import { Link } from "react-router-dom";
@@ -6,18 +6,25 @@ import { useModalOpen } from "context/ModalOpen/ModalOpenContext";
 
 const PinForm = () => {
   const { modalDispatch } = useModalOpen();
-  const handleClick = () => {
+  const [pin, setPin] = useState("");
+  const handleClick = (e) => {
+    e.preventDefault();
+    const password = localStorage.getItem("file_explorer_password");
+    if (!password) {
+      return alert("Password Not set please Register");
+    }
+    if (password !== pin) {
+      setPin("");
+      return alert("Invalid password");
+    }
     modalDispatch({ type: "CLOSE" });
   };
   return (
     <div className={styles["pin-form"]}>
       <h2 className={styles["title"]}>Enter Account Pin</h2>
       <div className={styles["pin-box"]}>
-        <PinBox />
+        <PinBox pin={pin} setPin={setPin} />
       </div>
-      <p style={{ color: "red" }}>
-        Work In Progress Press Enter To Continue :)
-      </p>
       <button
         className={`${styles["btn"]} ${styles["btn-submit"]}`}
         onClick={handleClick}

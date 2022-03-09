@@ -9,31 +9,28 @@ const AddForm = ({ type }) => {
   const { fList } = useFolderList();
   const { listsDispatch } = useData();
   const { modalDispatch } = useModalOpen();
-  const [newItem, setNewItem] = useState({
-    id: Math.random().toString(),
-    label: "",
-    type: type,
-    ...(type === "Folder" && { children: [] }),
-  });
+  const [label, setLabel] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (newItem.label.trim() === "") {
+    if (label === "") {
       alert(`${type} Name cannot be empty!!!`);
       return;
     }
+    const newItem = {
+      id: Math.random().toString(),
+      label: label,
+      type: type,
+      ...(type === "Folder" ? { children: [] } : { content: "" }),
+    };
+    console.log(newItem);
     listsDispatch({
       type: "ADD",
       payload: newItem,
       add: newItem.type,
       active: fList.active,
     });
-    setNewItem({
-      id: Math.random().toString(),
-      label: "",
-      type: type,
-      ...(type === "Folder" ? { children: [] } : { content: "" }),
-    });
+    setLabel("");
 
     modalDispatch({ type: "CLOSE" });
   };
@@ -47,10 +44,8 @@ const AddForm = ({ type }) => {
           type="text"
           placeholder={`Enter ${type} Name`}
           className={styles["add-form____input"]}
-          value={newItem.label}
-          onChange={(e) =>
-            setNewItem((prev) => ({ ...prev, label: e.target.value }))
-          }
+          value={label}
+          onChange={(e) => setLabel(e.target.value)}
         />
       </div>
       <button

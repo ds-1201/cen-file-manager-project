@@ -27,10 +27,6 @@ const Sidebar = ({ sidebarWidth, setSidebarWidth }) => {
           mouseMoveEvent.clientX -
           sidebarRef.current.getBoundingClientRect().left;
         setSidebarWidth(value <= 320 ? 320 : value);
-        console.log(
-          mouseMoveEvent.clientX,
-          sidebarRef.current.getBoundingClientRect().left,
-        );
       }
     },
     [isResizing],

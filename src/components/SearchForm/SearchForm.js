@@ -3,6 +3,8 @@ import styles from "./SearchForm.module.scss";
 import SearchIcon from "./../../assets/SearchIcon";
 
 const SearchForm = () => {
+  // const [input, setInput] = useState("");
+  // const [active, setActive] = useState("");
   const handleSearch = (e) => {
     e.preventDefault();
     console.log("Search App");

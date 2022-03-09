@@ -1,22 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./PinBox.module.scss";
 import OtpInput from "react-otp-input";
+import PropTypes from "prop-types";
 
-const PinBox = () => {
-  const [input, setInput] = useState("");
+const PinBox = ({ pin, setPin }) => {
   return (
     <OtpInput
-      value={input}
+      value={pin}
       onChange={(value) => {
-        setInput(value);
-        console.log(input);
+        setPin(value);
       }}
       numInputs={4}
       inputStyle={styles["pin-box__input"]}
-      isInputNum
       isInputSecure
     />
   );
+};
+
+PinBox.propTypes = {
+  pin: PropTypes.string.isRequired,
+  setPin: PropTypes.func.isRequired,
 };
 
 export default PinBox;

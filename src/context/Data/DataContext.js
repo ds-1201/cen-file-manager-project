@@ -9,23 +9,29 @@ const updateState = (newItem, parent, active) => {
     return [...parent, newItem];
   }
 
-  for (let i = 0; i < parent.length; i++) {
+  for (let i = 0; i < parent?.length; i++) {
+    if (parent[i].type !== "Folder") {
+      continue;
+    }
     if (parent[i].id === active.id) {
       parent[i].children.push(newItem);
       return parent;
     }
-    parent[i] = updateState(newItem, parent[i], active);
+    parent[i].children = updateState(newItem, parent[i].children, active);
   }
   return parent;
 };
 
 const editFile = (content, parent, active) => {
-  for (let i = 0; i < parent.length; i++) {
+  for (let i = 0; i < parent?.length; i++) {
     if (parent[i].id === active.id) {
       parent[i].content = content;
       return parent;
     }
-    parent[i] = editFile(content, parent[i], active);
+    if (parent[i].type === "File") {
+      continue;
+    }
+    parent[i].children = editFile(content, parent[i].children, active);
   }
   return parent;
 };

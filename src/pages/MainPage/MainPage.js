@@ -13,6 +13,10 @@ function MainPage() {
   const { modal, modalDispatch } = useModalOpen();
 
   useEffect(() => {
+    const password = localStorage.getItem("file_explorer_password");
+    if (!password) {
+      localStorage.setItem("file_explorer_password", "1234");
+    }
     modalDispatch({ type: "OPEN", payload: "Lock" });
   }, []);
   let display = <h2>Server Error :(</h2>;
